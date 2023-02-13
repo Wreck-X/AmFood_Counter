@@ -1,7 +1,7 @@
 from telebot import TeleBot
 import os
 
-bot = TeleBot(os.getenv('amfood'))
+bot = TeleBot(os.getenv('amfoodkey'))
 
 
 
@@ -15,4 +15,6 @@ def start(message):
 @bot.message_handler(commands=['sendPoll'])
 def sendpoll(message):
     options = ['YES','NO']
-    bot.send_poll(message.chat_id,"Ye or Nay for food?",options)
+    bot.send_poll(message.chat.id,"Ye or Nay for food?",options)
+
+bot.infinity_polling()
